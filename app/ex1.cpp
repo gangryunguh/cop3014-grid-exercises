@@ -39,5 +39,11 @@ int main()
 
 void showArray(const int array[][COLS], int rows)
 {
-   cout << "IMPLEMENT showArray\n";
+   cout << "\nshowArray:\n";
+   for (int i = 0; i < rows; i++) {
+       for (int j = 0; j < COLS; j++) {
+           cout << " " << fixed << setw(6) << array[i][j];
+       }
+       cout << endl;
+   }
 }
