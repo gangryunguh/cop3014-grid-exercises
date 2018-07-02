@@ -1,4 +1,4 @@
-// This exercise is to print an initialzied 2D non-negative
+// This exercise is to print an initialzied 2D positive
 // integer grid from an input position.
 // You should prompt the user for a row and column value
 // in the grid. From this location, you need to print
@@ -20,7 +20,7 @@ void spiralShowGrid(int [][COLS], int, int); // Function prototype
 
 int main()
 {
-    int grid[6][4] = {{0, 1, 2, 3},
+    int grid[6][4] = {{1, 2, 3, 4},
             {10, 11, 12, 13},
             {20, 21, 22, 23},
             {30, 31, 32, 33},
@@ -51,6 +51,71 @@ void showGrid(int g[][COLS], int r) {
     }
 };
 
+bool finished(int s[][COLS]) {
+    for (int i = 0; i < ROWS; ++i)
+        for (int j = 0; j < COLS; ++j)
+            if (s[i][j] == 0)
+                return false;
+    return true;
+}
+
 void spiralShowGrid(int g[][COLS], int r, int c) {
-    cout << "YOU NEED TO IMPLEMENT spiralShowGrid\n";
+    cout << "\nspiralShowGrid:";
+    int col = 0;
+    int states[ROWS][COLS] = {0};
+    int steps = 1;
+
+    states[r][c]=steps;
+    do {
+        if (col % 4 == 0)
+            cout << endl;
+        cout << fixed << setw(6) << g[r][c] << flush;
+        col++;
+
+        // check north
+        if (r-1 >= 0 && states[r-1][c] == 0) {
+            steps++;
+            r--;
+            states[r][c] = steps;
+        }
+        // check west
+        else if (c-1 >= 0 && states[r][c-1] == 0) {
+            steps++;
+            c--;
+            states[r][c] = steps;
+        }
+        // check south
+        else if (r+1 < ROWS && states[r+1][c] == 0) {
+            steps++;
+            r++;
+            states[r][c] = steps;
+        }
+        // check east
+        else if (c+1 < COLS && states[r][c+1] == 0) {
+            states[r][c+1] = steps++;
+            c++;
+        }
+        else {
+
+            if (finished(states))
+                break;
+            // you need to backtrack
+            states[r][c] = -1;
+            steps--;
+            if (c+1 >= 0 && states[r][c+1] == steps)
+                c++;
+            else if (r+1 < ROWS && states[r+1][c] == steps)
+                r++;
+            else if (c-1 >= 0 && states[r][c-1] == steps)
+                c--;
+            else if (r-1 >= 0 && states[r-1][c] == steps)
+                r--;
+            else {
+                cout << "incorrect array\n";
+                exit(1);
+            }
+        }
+
+
+    } while (1);
 }
