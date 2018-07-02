@@ -14,7 +14,10 @@ using namespace std;
 // Global constants
 const int COLS = 4;  // Number of columns in each array
 const int ROWS = 6;  // Number of rows in each array
+
 void showGrid(int[][COLS], int);
+bool finished(int [][COLS]);  // utility function to tell whether
+                              // still work to do for the spiral printing
 void spiralShowGrid(int [][COLS], int, int); // Function prototype
 
 int main()
@@ -50,6 +53,22 @@ void showGrid(int g[][COLS], int r) {
     }
 };
 
+
+bool finished(int s[][COLS]) {
+    for (int i = 0; i < ROWS; i++)
+        for (int j = 0; j < COLS; j++)
+            if (s[i][j] == 0)
+                return false;
+    return true;
+}
+
 void spiralShowGrid(int g[][COLS], int r, int c) {
     cout << "YOU NEED TO IMPLEMENT spiralShowGrid\n";
+
+    int states[ROWS][COLS] = {0}; // initialize every element to 0
+    int steps = 1;
+    states[r][c] = steps;
+    do {
+        // need to implement this part
+    } while (finished(states));
 }
