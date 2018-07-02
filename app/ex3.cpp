@@ -1,5 +1,5 @@
-// This exercise is to print an initialzied 2D grid
-// from a current position of the grid.
+// This exercise is to print an initialzied 2D non-negative
+// grid from an input position.
 // You should prompt the user for a row and column value
 // in the grid. From this location, you need to print
 // each element value in north, east, south, and west.
@@ -15,7 +15,7 @@ using namespace std;
 const int COLS = 4;  // Number of columns in each array
 const int ROWS = 6;  // Number of rows in each array
 void showGrid(int[][COLS], int);
-void spiralShowGrid(int [][COLS], int); // Function prototype
+void spiralShowGrid(int [][COLS], int, int); // Function prototype
 
 int main()
 {
@@ -36,7 +36,7 @@ int main()
          << "[" << col << "]" << endl;
 
     cout << "\nThe spiral printing contents of initialized grid are:\n";
-    spiralShowGrid(grid, ROWS);
+    spiralShowGrid(grid, row, col);
     return 0;
 }
 
@@ -50,6 +50,6 @@ void showGrid(int g[][COLS], int r) {
     }
 };
 
-void spiralShowGrid(int g[][COLS], int r) {
+void spiralShowGrid(int g[][COLS], int r, int c) {
     cout << "YOU NEED TO IMPLEMENT spiralShowGrid\n";
 }
