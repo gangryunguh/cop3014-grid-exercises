@@ -96,26 +96,11 @@ void spiralShowGrid(int g[][COLS], int r, int c) {
             c++;
         }
         else {
-
             if (finished(states))
                 break;
-            // you need to backtrack
-            states[r][c] = -1;
-            steps--;
-            if (c+1 >= 0 && states[r][c+1] == steps)
-                c++;
-            else if (r+1 < ROWS && states[r+1][c] == steps)
-                r++;
-            else if (c-1 >= 0 && states[r][c-1] == steps)
-                c--;
-            else if (r-1 >= 0 && states[r-1][c] == steps)
-                r--;
-            else {
-                cout << "incorrect array\n";
-                exit(1);
-            }
+            cout << "incorrect array\n";
+            exit(1);
         }
-
 
     } while (1);
 }
