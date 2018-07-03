@@ -22,7 +22,7 @@ void spiralShowGrid(int [][COLS], int, int); // Function prototype
 
 int main()
 {
-    int grid[6][4] = {{ 0,  1,  2,  3},
+    int grid[6][4] = {{ 1,  2,  3,  4},
                       {10, 11, 12, 13},
                       {20, 21, 22, 23},
                       {30, 31, 32, 33},
