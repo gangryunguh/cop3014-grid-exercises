@@ -96,11 +96,9 @@ void spiralShowGrid(int g[][COLS], int r, int c) {
             c++;
         }
         else {
-            if (finished(states))
-                break;
             cout << "incorrect array\n";
             exit(1);
         }
 
-    } while (1);
+    } while (!finished(states));
 }
