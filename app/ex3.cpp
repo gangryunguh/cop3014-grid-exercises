@@ -2,7 +2,7 @@
 // grid from an input position.
 // You should prompt the user for a row and column value
 // in the grid. From this location, you need to print
-// each element value in north, east, south, and west.
+// each element value in north, west, south, and east.
 //
 // prepared by Gang-Ryung Uh
 
