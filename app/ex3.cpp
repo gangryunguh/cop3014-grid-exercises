@@ -3,7 +3,7 @@
 // You should prompt the user for a row and column value
 // in the grid. From this location, you need to print
 // each element value in spiral iteration -
-// north, east, south, and west.
+// north, west, south, and east.
 //
 // prepared by Gang-Ryung Uh
 
