@@ -51,7 +51,7 @@ void showGrid(int g[][COLS], int r) {
     }
 };
 
-bool finished(int s[][COLS]) {
+bool notFinished(int s[][COLS]) {
     for (int i = 0; i < ROWS; ++i)
         for (int j = 0; j < COLS; ++j)
             if (s[i][j] == 0)
@@ -96,9 +96,9 @@ void spiralShowGrid(int g[][COLS], int r, int c) {
             c++;
         }
         else {
-            cout << "incorrect array\n";
+            cout << "You still need to add backtracking code\n";
             exit(1);
         }
 
-    } while (!finished(states));
+    } while (!notFinished(states));
 }
