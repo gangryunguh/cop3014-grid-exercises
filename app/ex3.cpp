@@ -57,8 +57,8 @@ bool notFinished(int s[][COLS]) {
     for (int i = 0; i < ROWS; i++)
         for (int j = 0; j < COLS; j++)
             if (s[i][j] == 0)
-                return false;
-    return true;
+                return true;
+    return false;
 }
 
 void spiralShowGrid(int g[][COLS], int r, int c) {
@@ -66,8 +66,11 @@ void spiralShowGrid(int g[][COLS], int r, int c) {
 
     int states[ROWS][COLS] = {0}; // initialize every element to 0
     int steps = 1;
-    states[r][c] = steps;
+
     do {
-        // need to implement this part
+        cout << g[r][c] << endl;
+        states[r][c] = steps;
+        // need to implement this part for the printing in North-West-South-East direction
+
     } while (notFinished(states));
 }
