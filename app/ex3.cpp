@@ -55,50 +55,40 @@ bool notFinished(int s[][COLS]) {
     for (int i = 0; i < ROWS; ++i)
         for (int j = 0; j < COLS; ++j)
             if (s[i][j] == 0)
-                return false;
-    return true;
+                return true;
+    return false;
 }
 
 void spiralShowGrid(int g[][COLS], int r, int c) {
+
     cout << "\nspiralShowGrid:";
-    int col = 0;
-    int states[ROWS][COLS] = {0};
+
+    int states[ROWS][COLS] = {0}; // initialize every element to 0
     int steps = 1;
 
-    states[r][c]=steps;
     do {
-        if (col % 4 == 0)
-            cout << endl;
-        cout << fixed << setw(6) << g[r][c] << flush;
-        col++;
+        cout << setw(10) << g[r][c] << flush;
+        states[r][c] = steps;
+        cout << endl;
 
-        // check north
-        if (r-1 >= 0 && states[r-1][c] == 0) {
-            steps++;
-            r--;
-            states[r][c] = steps;
+        // north
+        if  (r > 0 && !states[r-1][c]) {
+            r = r-1;
         }
-        // check west
-        else if (c-1 >= 0 && states[r][c-1] == 0) {
-            steps++;
-            c--;
-            states[r][c] = steps;
+            // west
+        else if (c >  0  && !states[r][c-1]) {
+            c = c-1;
         }
-        // check south
-        else if (r+1 < ROWS && states[r+1][c] == 0) {
-            steps++;
-            r++;
-            states[r][c] = steps;
+            // south
+        else if (r < ROWS-1 && !states[r+1][c]) {
+            r = r+1;
         }
-        // check east
-        else if (c+1 < COLS && states[r][c+1] == 0) {
-            states[r][c+1] = steps++;
-            c++;
+            // west
+        else if (c < COLS-1 && !states[r][c+1]) {
+            c = c+1;
         }
         else {
-            cout << "You still need to add backtracking code\n";
-            exit(1);
+            cerr << "I am stuck....(:(:" << endl;
         }
-
-    } while (!notFinished(states));
+    } while (notFinished(states));
 }
